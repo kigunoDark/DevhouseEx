@@ -1,0 +1,53 @@
+@import '../../scss/Mixin.scss';
+@import '../../scss/Variables.scss';
+@import '../../scss/Resets.scss';
+
+.location {
+  padding-bottom: 5%;
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      overflow: hidden;
+    }
+
+    .title:after {
+      @include underline;    
+    }
+  }
+
+}
+
+.location__list {
+  margin-top: 1%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.location__list >* {
+  flex: 1  1 50px;
+}
+
+.location__name {
+  color: $dark_text;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) { 
+  .location__list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .location__list >* {
+    flex: 1  1 25px;
+  }
+}

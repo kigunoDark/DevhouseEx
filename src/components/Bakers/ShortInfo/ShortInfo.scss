@@ -1,0 +1,33 @@
+@import '../../../scss/Mixin.scss';
+@import '../../../scss/Variables.scss';
+@import '../../../scss/Resets.scss';
+
+
+.short_info {
+  @include flexType(row);
+  align-items: center;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10% 0;
+}
+
+.short_info__text {
+  width: 70%;
+  margin: 0 auto;
+  color: $dark_text;
+  font-weight: bold;
+}
+
+.short_info__img {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .short_info {
+    @include flexType(column);
+  }
+}
