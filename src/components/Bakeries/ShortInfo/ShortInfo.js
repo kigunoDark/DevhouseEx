@@ -12,7 +12,7 @@ const ShortInfo = () => {
         <p className="short_info__text">Hand made by local bakeries</p>
       </div>
       <div className="short_info__item">
-        <img src={lollipop} className="short_info__img"  alt="2"/>
+        <img src={lollipop} className="short_info__img" alt="2" />
         <p className="short_info__text">
           Same price as from bakery - but simpler
         </p>

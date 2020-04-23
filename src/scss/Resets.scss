@@ -20,3 +20,24 @@ a {
 
 .slick-slide, .slick-slide *{ outline: none !important; }
 
+.slick-prev, .slick-next {
+  font-size: 15px !important;
+}
+
+.slick-prev:before, .slick-next:before  {
+  content: '' !important;
+}
+
+.loading {
+  color: $dark_text;
+  font-weight: bold;
+}
+
+@media (min-width: 3000px) {
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+

@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import nv from "../../imgs/nv.png";
 import sw from "../../imgs/sw.png";
 import "./Footer.scss";
 
 const Footer = () => {
+  let [lng, setLng] = useState(false);
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__content">
           <div className="social">
-            <a className="social__link" href="/#">
+            <a className="social__link" 
+               href="https://www.instagram.com/foxbuka/?hl=en"  
+               target="__blank">
               <i className="fab fa-instagram"></i>
             </a>
-            <a className="social__link" href="/#">
+            <a className="social__link" 
+               href="https://www.facebook.com/profile.php?id=100010356462751" 
+               target="__blank">
               <i className="fab fa-facebook-f"></i>
             </a>
           </div>
@@ -23,8 +28,10 @@ const Footer = () => {
           </div>
           <div className="language">
             <p>Language</p>
-            <button className="language__type">no</button>
-            <button className="language__type active ">en</button>
+            <button className={lng===false ? "language__type active" : "language__type"}
+                    onClick={() => setLng(!lng)}>no</button>
+            <button className={ lng===true ? "language__type active" : "language__type"}
+                    onClick={() => setLng(!lng)}>en</button>
           </div>
         </div>
         <div className="footer__content">

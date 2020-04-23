@@ -1,4 +1,8 @@
-.slider { 
+@import "../../scss/Mixin.scss";
+@import "../../scss/Variables.scss";
+@import "../../scss/Resets.scss";
+
+.slider {
   .test {
     display: flex;
     align-items: center;
@@ -8,9 +12,8 @@
     height: 10%;
     outline: none
   }
+
   .dot {
     color: white;
   }
 }
-
-

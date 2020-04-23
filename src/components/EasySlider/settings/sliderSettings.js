@@ -1,58 +1,56 @@
 import React from "react";
 
-const PrewArrow = (props) => {
-  const { onClick } = props;
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
   return (
-    <i
-      className={"fas fa-chevron-left"}
-      style={{ display: "block", marginRight: "3%", cursor: "pointer" }}
-      onClick={onClick}
-    />
+    <div className={className} style={{ ...style, display: "block" }}>
+      <i onClick={onClick} className="fas fa-chevron-right"></i>
+    </div>
   );
-};
+}
 
-const NextArrow = (props) => {
-  const { onClick } = props;
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
   return (
-    <i
-      className={"fas fa-chevron-right"}
-      style={{ display: "block", cursor: "pointer" }}
-      onClick={onClick}
-    />
+    <div className={className} style={{ ...style, display: "block" }}>
+      <i onClick={onClick} className="fas fa-chevron-left"></i>
+    </div>
   );
-};
+}
 
-export const   settings = {
+export const settings = {
   dots: false,
-  infinite: false,
+  infinite: true,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 4,
   initialSlide: 0,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
+        dots: false,
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true
-      }
+      },
     },
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-        initialSlide: 2
-      }
+        initialSlide: 2,
+      },
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };

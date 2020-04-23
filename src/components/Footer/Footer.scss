@@ -1,6 +1,6 @@
-@import '../../scss/Mixin.scss';
-@import '../../scss/Variables.scss';
-@import '../../scss/Resets.scss';
+@import "../../scss/Mixin.scss";
+@import "../../scss/Variables.scss";
+@import "../../scss/Resets.scss";
 
 
 .footer {
@@ -115,14 +115,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+
   .footer__content {
     flex: 0 42%;
     height: 250px;
-    margin-bottom: 2%; 
+    margin-bottom: 2%;
   }
- 
-  .social, .country, 
+
+  .social,
+  .country,
   .language {
     text-align: left;
   }
@@ -146,15 +147,18 @@
 @media (max-width: 600px) {
   .footer {
     padding: 10%;
+
     .container {
       @include flexType(column);
-    }  
-  } 
+    }
+  }
 
-  .social, .country, 
+  .social,
+  .country,
   .language {
     text-align: left;
   }
+
   .country__flag {
     margin: 20px 20px 0px 0px;
   }

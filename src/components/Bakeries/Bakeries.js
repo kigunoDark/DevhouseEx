@@ -1,5 +1,5 @@
-import React from "react"
-import EasySlideContainer from "../EasySlider/EasySliderContainer"
+import React from "react";
+import EasySlideContainer from "../EasySlider/EasySliderContainer";
 import "./Bakeries.scss";
 import ShortInfo from "./ShortInfo/ShortInfo";
 
@@ -10,7 +10,7 @@ const Bakeries = () => {
       <EasySlideContainer />
       <ShortInfo />
     </div>
-  )
-}
+  );
+};
 
 export default Bakeries;
