@@ -1,0 +1,17 @@
+
+@import '../../scss/Mixin.scss';
+@import '../../scss/Variables.scss';
+@import '../../scss/Resets.scss';
+
+.bakeries {
+  width: 80%;
+  margin: 0 auto;
+
+  .title {
+    font-size: 20px;
+    margin: 3% 0%;
+  }
+  .title:after{
+    @include underline;
+  }
+}

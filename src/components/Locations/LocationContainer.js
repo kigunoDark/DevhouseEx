@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Location from './Location';
-import * as axios from "axios";
+import {mainApi} from '../../api/api';
 
 const LocationContainer = () => {
   let [location, setLocation] = useState([]);
@@ -8,10 +8,8 @@ const LocationContainer = () => {
   useEffect(() => {
     (async function () {
       try {
-        let locations = await axios.get(
-          "http://api.dev.cakeiteasy.no/api/store/cities/?country_code=no&most_popular=true"
-        );
-        setLocation(locations.data);
+        let locations = await mainApi.getLocations();
+        setLocation(locations);
       } catch (err) {
         console.log(err);
       }
