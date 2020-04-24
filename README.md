@@ -10,9 +10,10 @@
 
 Для установки и запуска:
 
-### git clone git@github.com:kigunoDark/Ex1.git
-### npm i 
-### npm start
+`git clone git@github.com:kigunoDark/Ex1.git`
+`npm i`
+`npm start`
+
 
 Все компаненты разбиты на контейнеры и визуальные.
 В первом варианте прописанна вся логическая часть, второй
