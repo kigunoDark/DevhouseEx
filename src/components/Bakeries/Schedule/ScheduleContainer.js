@@ -1,20 +1,28 @@
-import React, {useState, useEffect } from  "react";
+import React, {useState, useEffect} from  "react";
+import { useParams } from "react-router";
 import Schedule from "./Schedule";
-import * as axios from "axios";
+import { mainApi } from "../../../api/api.js";
 
-const ScheduleContainer = () => {
+const ScheduleContainer = (props) => {
+  let param =  useParams();
   const [ schedule, setSchedule] = useState([]);
   const [ name, setName] = useState('');
+  const [err, setError] = useState(false);
+
+  
   useEffect(() => {
     (async function() {
       let map = new Map(),
           schedule = [],
           prevDayName ='',
-          list = await axios.get("http://api.dev.cakeiteasy.no/api/store/bakeries/Che-Bakery/?country=NO"); 
-          list = list.data;  
+          list = await mainApi.getBakery(param.name);
+          
+      if(list.message) {
+        setError(true);
+      } else {
 
       let upperFirst = (day) => day.split('')[0].toLocaleUpperCase() + day.slice(1);
-    
+
       for(let day in list.schedule) {
         if(prevDayName === '') prevDayName = day;
         if(list.schedule[day].day_off === false) {
@@ -48,13 +56,15 @@ const ScheduleContainer = () => {
           schedule.push(`${upperFirst(day)}: closed`);
         };
       }; 
-      
+      setError(false);
       setSchedule(schedule);
       setName(list.name)
-    })()
-  }, []) 
+      }
+    })();
+  
+  }, [param.name]);
  
-  return  <Schedule schedule={schedule} name={name} />
+  return  <Schedule schedule={schedule} name={name} err={err} />
 }
 
 export default ScheduleContainer;
