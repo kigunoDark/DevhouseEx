@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import nv from "../../imgs/nv.png";
 import sw from "../../imgs/sw.png";
 import "./Footer.scss";

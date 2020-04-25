@@ -11,7 +11,7 @@ const instance = axios.create({
 export const mainApi = {
   getLocations: () => {
      return instance.get("cities/?country_code=no&most_popular=true")
-     .then(locations => locations.data)
+     .then(locations => locations.data);
   },
   getBakeries: () => {
     return instance.get("bakeries/?country_code=no")
