@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Location from './Location';
-import {mainApi} from '../../api/api';
+import Location from "./Location";
+import { mainApi } from "../../api/api";
 
 const LocationContainer = () => {
   let [location, setLocation] = useState([]);
@@ -16,9 +16,7 @@ const LocationContainer = () => {
     })();
   }, []);
 
-  return (
-    <Location locations={location}/>
-  )
+  return <Location locations={location} />;
 };
 
 export default LocationContainer;

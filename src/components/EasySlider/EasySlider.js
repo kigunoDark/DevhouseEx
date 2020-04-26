@@ -3,9 +3,6 @@ import "./EasySlider.scss";
 import Slider from "react-slick";
 import {settings} from "./settings/sliderSettings.js"
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   NavLink,
 } from "react-router-dom";
 

@@ -18,13 +18,18 @@ a {
   text-decoration: none;
 }
 
-.slick-slide, .slick-slide *{ outline: none !important; }
+.slick-slide,
+.slick-slide * {
+  outline: none !important;
+}
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   font-size: 15px !important;
 }
 
-.slick-prev:before, .slick-next:before  {
+.slick-prev:before,
+.slick-next:before {
   content: '' !important;
 }
 
@@ -39,5 +44,3 @@ a {
     margin: 0 auto;
   }
 }
-
-
