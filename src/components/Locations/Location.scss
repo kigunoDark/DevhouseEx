@@ -16,7 +16,7 @@
     }
 
     .title:after {
-      @include underline;
+      @include underline;    
     }
   }
 
@@ -24,14 +24,14 @@
 
 .location__list {
   margin-top: 1%;
-  height: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.location__list>* {
-  flex: 0 0 30%;
+.location__list >* {
+  flex: 1  1 50px;
 }
 
 .location__name {
@@ -39,9 +39,16 @@
   font-weight: bold;
 }
 
+@media (max-width: 500px) { 
+  .location__list >* {
+    flex: 1  1 100px;
+  }
+}
+
+
 
 @media (max-width: 900px) {
-  .location__list>* {
-    flex: 1 1 20%;
+  .location__list >* {
+    flex: 1  1 2px;
   }
 }
