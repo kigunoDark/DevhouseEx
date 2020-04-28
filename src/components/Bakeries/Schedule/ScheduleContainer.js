@@ -19,8 +19,22 @@ const ScheduleContainer = (props) => {
       if (list.message) {
         setError(true);
       } else {
-        let upperFirst = (day) =>
-          day.split("")[0].toLocaleUpperCase() + day.slice(1);
+
+        let upperFirst = (day) => day.split("")[0].toLocaleUpperCase() + day.slice(1);
+
+        let stringGen = (fday, lday, time, days_before) => {
+          let newString = '';
+          days_before = days_before > 1 ? `: Before ${time}, days before` : `: Before ${time}, day before `;
+          if(fday === lday) {
+            newString += upperFirst(lday) + days_before;
+          } else if(fday !== lday && fday !== "close") {
+            newString += `For ${upperFirst(lday)} - ${upperFirst(fday)}` + days_before;
+          } else {
+            newString += upperFirst(lday) + ": Closed";
+          }
+          return  newString;
+        }
+
 
         for (let day in list.schedule) {
           if (prevDayName === "") prevDayName = day;
@@ -42,38 +56,45 @@ const ScheduleContainer = (props) => {
         }
 
         for (let day in map) {
-          let time = ((list.schedule[day].order_before / 60) - 2).toString() + ':00'
-          if (map[day] === day) {
-            if (list.schedule[day].days_before_order > 1) {
-              schedule.push(
-                `${upperFirst(day)}: Before ${
-                  time
-                }, ${list.schedule[day].days_before_order} days before`
-              );
-            } else {
-              schedule.push(
-                `${upperFirst(day)}: Before ${
-                  time
-                }, ${list.schedule[day].days_before_order} day before`
-              );
-            }
-          } else if (map[day] !== day && map[day] !== "close") {
-            if (list.schedule[day].days_before_order > 1) {
-              schedule.push(
-                `For ${upperFirst(day)} - ${upperFirst(map[day])}: Before ${
-                  time
-                }, ${list.schedule[day].days_before_order} days before`
-              );
-            } else {
-              schedule.push(
-                `${upperFirst(day)} - ${upperFirst(map[day])}: Before ${
-                  time
-                }, ${list.schedule[day].days_before_order} day before`
-              );
-            }
-          } else {
-            schedule.push(`${upperFirst(day)}: closed`);
-          }
+
+          let days_before = list.schedule[day].days_before_order;
+          let order_before = list.schedule[day].order_before;
+
+          let time = ((order_before / 60) - 2).toString() + ':00';
+          schedule.push(stringGen(map[day], day, time, days_before));
+
+          
+          // if (map[day] === day) {
+          //   if (days_before > 1) {
+          //     schedule.push(
+          //       `${upperFirst(day)}: Before ${
+          //         time
+          //       }, ${days_before} days before`
+          //     );
+          //   } else {
+          //     schedule.push(
+          //       `${upperFirst(day)}: Before ${
+          //         time
+          //       }, ${days_before} day before`
+          //     );
+          //   }
+          // } else if (map[day] !== day && map[day] !== "close") {
+          //   if (days_before > 1) {
+          //     schedule.push(
+          //       `For ${upperFirst(day)} - ${upperFirst(map[day])}: Before ${
+          //         time
+          //       }, ${days_before} days before`
+          //     );
+          //   } else {
+          //     schedule.push(
+          //       `${upperFirst(day)} - ${upperFirst(map[day])}: Before ${
+          //         time
+          //       }, ${days_before} day before`
+          //     );
+          //   }
+          // } else {
+          //   schedule.push(`${upperFirst(day)}: closed`);
+          // }
         }
         setError(false);
         setSchedule(schedule);
