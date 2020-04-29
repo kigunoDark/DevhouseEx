@@ -26,13 +26,12 @@ const ScheduleContainer = (props) => {
           let newString = '';
           days_before = days_before > 1 ? `: Before ${time}, days before` : `: Before ${time}, day before `;
           if(fday === lday) {
-            newString += upperFirst(lday) + days_before;
+            return newString += upperFirst(lday) + days_before;
           } else if(fday !== lday && fday !== "close") {
-            newString += `For ${upperFirst(lday)} - ${upperFirst(fday)}` + days_before;
+            return newString += `For ${upperFirst(lday)} - ${upperFirst(fday)}` + days_before;
           } else {
-            newString += upperFirst(lday) + ": Closed";
+            return newString += upperFirst(lday) + ": Closed";
           }
-          return  newString;
         }
 
 
@@ -61,9 +60,10 @@ const ScheduleContainer = (props) => {
           let order_before = list.schedule[day].order_before;
 
           let time = ((order_before / 60) - 2).toString() + ':00';
+
           schedule.push(stringGen(map[day], day, time, days_before));
 
-          
+
           // if (map[day] === day) {
           //   if (days_before > 1) {
           //     schedule.push(

@@ -10,7 +10,7 @@ const Location = (props) => {
           <div className="location__list">
             {props.locations.map((l, i) => (
               <div className="location__name" key={i}>
-                {l.name}
+                <a href="/#">  {l.name}</a>
               </div>
             ))}
           </div>
