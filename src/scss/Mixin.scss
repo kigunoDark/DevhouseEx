@@ -1,0 +1,13 @@
+@mixin flexType($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-around;
+}
+
+@mixin underline {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  width: 100%;
+  border-top: 1px solid $light_border;
+}
